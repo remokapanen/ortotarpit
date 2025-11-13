@@ -1,0 +1,21 @@
+--- 
+title: "Ortopedia, traumatologia & käsikirurgia -tärpit"
+author: ""
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+# url: your book url like https://bookdown.org/yihui/bookdown
+# cover-image: path to the social sharing image like images/cover.jpg
+description: 
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+---
+
+# Wiki
+
+Tärpit ovat wikissä formatoitu aika rumasti ja niiden navigointi on vaikeaa, koska vuoden 2020 kysymyksiä ei ole numeroitu oikein vastausten mukaan ja uudemmissa ei tyypillisesti edes ole vastauksia (poislukien 2021). Vanhemmissa tärpeissä on myös runsaasti virheellisiä vastauksia. Uudemmissa usein puuttuu kysymyksenasettelu kokonaan ja usein on myös muistettu kysymyksenasetteluita väärin. Vaihtoehdot myös puuttuvat hyvin usein. 
+
+Olen yrittänyt siistiä tärppilistaa ja puutteellisissa kohdissa kirjoittaa aiheesta tietoa, jota voi kerrata, vaikka kysymystä tai vaihtoehtoja ei olisikaan wikissä tarjolla. Olen myös useissa kohtaa yrittänyt muistaa lisätä selityksiä sen suhteen, miksi jokin vastaus on oikein ja miksi toiset vääriä. 
+
+Toivottavasti tämä rebuildi parantaa tärppien läpikäymisprosessiasi ja säästää aikaasi. Jos huomaat virheitä (varmasti löytyy), niin otan korjausehdotuksia mielelläni vastaan esim. sähköpostitse tai [C7-oppaan palauteformsin](https://docs.google.com/forms/d/e/1FAIpQLSericnXGU2U_h7stCFVZ5X0-6Q9BLGdiDugun_Mex3kf_bTpg/viewform) kautta. 

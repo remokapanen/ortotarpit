@@ -1,0 +1,3376 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{book}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage[]{natbib}
+\bibliographystyle{plainnat}
+\usepackage{booktabs}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Ortopedia, traumatologia \& käsikirurgia -tärpit},
+  pdfauthor={Remo Kapanen},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Ortopedia, traumatologia \& käsikirurgia -tärpit}
+\author{Remo Kapanen}
+\date{2025-11-10}
+
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{conjecture}{Conjecture}[chapter]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\theoremstyle{definition}
+\newtheorem{example}{Example}[chapter]
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}[chapter]
+\theoremstyle{definition}
+\newtheorem{hypothesis}{Hypothesis}[chapter]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{solution}{Solution}
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\chapter{Wiki}\label{wiki}
+
+Tärpit ovat wikissä formatoitu aika rumasti ja niiden navigointi on vaikeaa, koska kysymyksiä ei ole numeroitu oikein vastausten mukaan ja uudemmissa ei edes ole vastauksia. Vanhemmissa tärpeissä on myös runsaasti virheellisiä vastauksia.
+
+Toivottavasti tämä rebuildi parantaa tärppien läpikäymisprosessiasi.
+
+\chapter{2020 (Fortis )}\label{fortis}
+
+\section{Solisluun murtumat}\label{solisluun-murtumat}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Luutumattomuusriski on 8-26\%, mutta osa näistä on oireettomia
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Keskikolmanneksen murtumat ovat yleisimpiä
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Kaikki vastausvaihtoehdot ovat oikein
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Keskikolmanneksen murtumat hoidetaan yleensä konservatiivisesti
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+c
+\end{verbatim}
+
+\end{solution}
+
+\section{Päivystyksessä (Kuusamon terveyskeskus) lähtisin hoitamaan kyseistä murtumaa ensin}\label{puxe4ivystyksessuxe4-kuusamon-terveyskeskus-luxe4htisin-hoitamaan-kyseistuxe4-murtumaa-ensin}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/K2_2020.png}}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Repositiolla paikallis-puudutuksessa ja dorsaalisella kipsilastalla
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Kirjoittaisin lähetteen erikoissairaanhoitoon (OYS)
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Repositiolla ja kulmakipsillä
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Irroitettavalla rannelastalla
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+a
+\end{verbatim}
+
+\end{solution}
+
+\section{Minkälainen nilkkavamma?}\label{minkuxe4lainen-nilkkavamma}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/K3_2020.png}}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Weber B-tyypin lateraalimalleolin murtuma, ehyt syndesmoosin etulehti ja deltaligamentin repeämä
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Weber B-tyypin lateraalimalleolin murtuma ja FTA-ligamentin repeämä
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Weber A-tyypin lateraalimalleolin murtuma ja FTA-ligamentin repeämä
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Weber A-tyypin lateraalimalleolin murtuma ja deltaligamentin repeämä
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+a
+\end{verbatim}
+
+\begin{itemize}
+\item
+  Weber B = murtuma nivelraon tasolla (monissa lähteissä sanotaan syndesmoositasolla)
+\end{itemize}
+
+\section{Mikä seuraavista rakenteista on FTA?}\label{mikuxe4-seuraavista-rakenteista-on-fta}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/K4_2020.png}}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    2
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    4
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    1
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    3
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+a
+\end{verbatim}
+
+\end{solution}
+
+\section{Kuvassa näkyvä jalkaterän liike tulee pääasiallisesti}\label{kuvassa-nuxe4kyvuxe4-jalkateruxe4n-liike-tulee-puxe4uxe4asiallisesti}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/K5_2020.png}}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    TC-nivelestä
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Lisfrancin nivelestä
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    TMT nivelistä
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Subtalaarinivelestä
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+d
+\end{verbatim}
+
+\end{solution}
+
+\section{Mikä seuraavista rakenteista on tibialis posterior jänne?}\label{mikuxe4-seuraavista-rakenteista-on-tibialis-posterior-juxe4nne}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/K6_2020.png}}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    2
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    3
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    1
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    4
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+d
+\end{verbatim}
+
+\end{solution}
+
+\section{Hamstring repeämät}\label{hamstring-repeuxe4muxe4t}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Leikkaushoidon tulokset ovat epävarmat, jos kyseessä on jänteiden repeytyminen irti insertiosta (Gradus III vammat)
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    MRI on aina tarpeellinen diagnostiikassa
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Tavataan käytännössä vain urheilijoilla
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Täydellinen repeämä (Gradus III vamma) voi syntyä keski-iässä liukastumistapaturman yhteydessä
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{4}
+  \tightlist
+  \item
+    Etureiden hematooma on usein avuksi diagnostiikassa
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+d
+\end{verbatim}
+
+\end{solution}
+
+\section{Mitä kuvassa testataan (potilas makuulla vatsallaan)?}\label{mituxe4-kuvassa-testataan-potilas-makuulla-vatsallaan}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/K8_2020.png}}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Aitiopaine oireyhtymää
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Akilliesjänne repeämää
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Suralis hermon toimintaa
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Hamstring repeämää
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+b
+\end{verbatim}
+
+\end{solution}
+
+\section{Eturistisiteen repeämä}\label{eturistisiteen-repeuxe4muxe4}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Vammaan liittyy usein MRI-kuvissa näkyvä kantavan nivelpinnan rustovaurio ja luukontuusio
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    On useimmiten yksittäinen vamma eikä kuulu ns. ''unhappy trias'' vammaan
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    ACL on kestävä ligamentti, joten sen repeämä vaatii aina kontaktin toisen pelaajan kanssa joukkuepelilajeissa
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Vamman jälkeisenä päivänä punktiossa saadaan tyypillisesti runsaasti nivelnestettä
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+a
+\end{verbatim}
+
+\begin{itemize}
+\item
+  b: Usein vammautuu toisten nivelsiteiden tai nivelkierukan kanssa; unhappy triad = ACL-vamma+MCL-vamma+kierukkavamma\\
+\item
+  c: Syntyy tyypillisesti valgisoivan kiertovääntövamman seurauksena; ei siis tarvitse suoraa kontaktia
+\item
+  d: Vammassa saadaan tyypillisesti verta punktoitua; ACL-repeämä on yleisin veripolven aiheuttaja aikuisilla
+\end{itemize}
+
+\section{Supraspinatuksen toimintaa voi testata}\label{supraspinatuksen-toimintaa-voi-testata}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Pitotestillä kyynärpää 90° kulmassa vaakatasossa
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Vastustetulla abduktiolla pikkurilli ylöspäin hiukan vaakatason alapuolella
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Vastustetulla etuelevaatiolla
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Pyytämällä potilasta viemään käsi selän taakse ja irrottamaan käsi ihosta
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+b
+\end{verbatim}
+
+\end{solution}
+
+\section{Mikä seuraavista rakenteista on peroneus longus jänne?}\label{mikuxe4-seuraavista-rakenteista-on-peroneus-longus-juxe4nne}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/K11_2020.png}}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    4
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    3
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    2
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    1
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+b
+\end{verbatim}
+
+\end{solution}
+
+\section{Mistä murtumasta on todennäköisimmin kyse?}\label{mistuxe4-murtumasta-on-todennuxe4kuxf6isimmin-kyse}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/K12_2020.png}}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Neer yhden fragmentin murtumasta
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Kaikki muut vastausvaihtoehdot ovat väärin
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Isoloidusta tuberculum majus murtumasta
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Neer kolmen fragmentin murtumasta
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+d 
+ 
+\end{verbatim}
+
+\begin{itemize}
+\item
+  Tuberculum majus on dislokoitunut \textgreater5mm (usein käytetään \textgreater5mm Neerin luokituksessa dislokoitumisrajana tuberculum majuksen suhteen; muut 1cm ja/tai \textgreater45 astetta angulaatiota). On myös murtumalinja kirurgisessa kaulassa ja se on dislokoitunut suhteessa varteen. On siis todettavissa kolme erillistä fragmenttia (tuberculum majus, caput ja varsi).
+\end{itemize}
+
+\section{Mikä murtuma?}\label{mikuxe4-murtuma}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/K13_2020.png}}
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Dorsaalinen Barton
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Smith
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Volaarinen Barton
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Die punch
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+d
+\end{verbatim}
+
+\end{solution}
+
+\section{Tyypillisen radiusmurtuman käypähoito suositus}\label{tyypillisen-radiusmurtuman-kuxe4ypuxe4hoito-suositus}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Värttinäluun alaosan murtumasta toipuminen kestää 3-4 kk, jolloin voidaan arvioida lopputulos
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Leikkaushoitoa suositellaan yli 65-vuotiaille, jos asento huononee kipsihoidon yhteydessä hyväksyttyjen raja-arvojen ulkopuolelle
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Murtumien ensisijainen hoitopaikka on erikoissairaanhoito
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Kipsihoito voidaan toteuttaa funktioasentoisella kipsilasta (ei volaarifleksiota, pronaatiota eikä ulnaarideviaatiota)
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+d
+\end{verbatim}
+
+\begin{itemize}
+\item
+  Wikissä vastaukseksi on laitettu b, mutta näin kirjoitetaan hoito-ohjeissa: ``Yli 65-vuotiaalla radiologinen löydös ei ennusta toiminnallista lopputulosta eikä kirurgisesta hoidosta todennäköisesti ole hyötyä, vaikkei murtuman asento olisi hyväksyttävä tai se heikkenisi kipsihoidon aikana hyväksyttävien raja-arvojen ulkopuolelle. Kirurgista hoitoa voidaan harkita myös aktiivisilla ikääntyvillä, joilla on suuret vaatimukset yläraajan toimintakyvyn suhteen. Sen tarve tulee harkita näillä potilailla huolellisesti ja tapauskohtaisesti''
+\item
+  Ranteen tyyppimurtuman kipsihoito juuri on d-kohdassa kuvailtu funktioasentoinen kipsilasta, jossa 0-20 asteen ekstensio, eikä muuta vääntelyä käden asennon suhteen.
+\end{itemize}
+
+\section{Kuvan nilkassa}\label{kuvan-nilkassa}
+
+\pandocbounded{\includegraphics[keepaspectratio]{imgaes/K15_2020.png}}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Talus siirtynyt lateraalisesti
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Kaikki vastausvaihtoehdot ovat oikein
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Mediaalinen nivelrako on levinnyt
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Lateraalimalleolissa murtuma
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+b
+\end{verbatim}
+
+\end{solution}
+
+\section{Lonkkamurtuma}\label{lonkkamurtuma}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Avaskulaarisen nekroosin riski on suurempi pertrokanteerisissa murtumissa kuin reisiluun kaulan murtumissa
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Yleisin murtumatyyppi on subtrokanteerinen murtuma
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    On tärkeää leikata mahdollisimman pian (1-2 vrk sisällä vammasta), koska sillä on vaikutus potilaan ennusteeseen
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Riski saada lonkkamurtuma on hoitokodissa asuvilla pienempi kuin muulla samanikäisellä väestöllä
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+c
+\end{verbatim}
+
+\end{solution}
+
+\section{Olkanivelen sijoiltaanmeno}\label{olkanivelen-sijoiltaanmeno}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Reposition jälkeen voimakasta ulkokiertoa on syytä välttää 6 viikon ajan
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Liitännäisvammana on lähes aina leikkaushoitoa vaativa kiertäjäkalvosimen repeämä
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Caput humeri luksoituu yleensä taaksepäin
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Sijoiltaanmenon yhteydessä yleisimmin vaurioituva hermo on nervus radialis
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+a (tosin ei enää) 
+\end{verbatim}
+
+\begin{itemize}
+\item
+  Vielä 2020 (kysymyksen tekovuosi) oli tapana vältellä ulkokiertoa 6 viikon ajan olkanivelen luksaation reposition jälkeen. Nykyään näin pitkää rajoitusta ei ilmeisesti enää ole. Ohje kuitenkin löytyy vielä Terveysportista olkanivelen sijoiltaanmeno -artikkelista.
+\end{itemize}
+
+\section{Subtrokanteerinen lonkkamurtuma}\label{subtrokanteerinen-lonkkamurtuma}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Johtaa usein päävaltimoiden (a.femoralis profunda) vaurioitumiseen
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Tämän murtuman ydinnaulaus johtaa usein rasvaemboliaan
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Korkeaenerginen, tyypillisesti pirstaleinen murtuma, joka vaatii yleensä avointa reduktiota ja levytystä
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Vanhuksilla kliiniseen kuvaan kuuluu raajan lyhentyminen, ulkorotaatio, paikallinen turvotus ja hypovolemiariski
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+d
+\end{verbatim}
+
+\begin{itemize}
+\item
+  Kuten muihinkin lonkkamurtumiin
+\end{itemize}
+
+\section{Luunmurtuman paraneminen}\label{luunmurtuman-paraneminen}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Pehmytosavauriot hidastavat luun paranemista
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Putkiluu paranee nopeammin kuin hohkaluu
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Murtumapäiden kompressio (kompressiolevytys) nopeuttaa luun paranemista
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Dislokoitumattomat nivelen sisäiset murtumat pyritään ensisijaisesti leikkaamaan hyvän lopputuloksen turvaamiseksi
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+a
+\end{verbatim}
+
+\end{solution}
+
+\section{Atyyppinen reisiluun murtuma}\label{atyyppinen-reisiluun-murtuma}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Tavataan nuorilla urheilijoilla rasitusmurtuman komplikaationa
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Kuvattu bisfosfonaattihoidon ja denosumabihoidon yhteydessä
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Myös oireettomaan murtumaan suositellaan profylaktista naulausta
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Matalaenergisissä vammoissa syntyvä osteoporoottinen murtuma
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+b
+\end{verbatim}
+
+\end{solution}
+
+\section{Eturistisiteen repeämän hoito nuorilla ja keski-ikäisillä}\label{eturistisiteen-repeuxe4muxe4n-hoito-nuorilla-ja-keski-ikuxe4isilluxe4}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Leikataan mahdollisimman nopeasti, jotta paraneminen pääsee heti alkuun
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Konservatiivisesti hoidettuna potilaalla on suurempi riski saada posttraumaattinen artroosi
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Leikkaus ei ole tarpeen, vaikka polvessa olisi muitakin ligamentti- ja kierukkavaurioita
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Voidaan hoitaa konservatiivisesti ja leikata tarvittaessa myöhemmin 3-6 kk kuluttua
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+d
+\end{verbatim}
+
+\begin{itemize}
+\item
+  Hoito on suunniteltava yksilöllisesti. Alkuvaiheessa kaikille ACL-repeämäpotilaille ohjataan polven liike- ja lihasvoimaharjoitukset. Yksittäisen ACL-repeämän leikkauksellinen hoito on perusteltu, jos reisilihasten aktiivisesta kuntoutuksesta huolimatta polvessa vamman jälkeen on toistuvia muljahduksia tai pettämistuntemuksia. Leikkaushoitoa puoltaa myös fyysisesti raskas työ, liikunnallisesti aktiivinen elämäntapa ja urheiluharrastus, jossa tulee paljon kiihdytyksiä ja suunnanmuutoksia (esim. pallo- ja mailapelit sekä laskettelu). Yksittäisen eturistisiderepeämän rekonstruktioleikkauksella ei ole kiire, se voidaan suorittaa viikkojen tai kuukausien kuluttua.
+\item
+  c: Eturistisiteen vaurioon liittyy noin puolessa tapauksista traumaattinen kierukkarepeämä. Nämä yhdistelmävammat hoidetaan pääsääntöisesti leikkauksellisesti rekonstruoimalla ACL jännesiirteellä ja ompelemalla kierukkarepeämä muutaman viikon sisällä tapaturmasta. Mikäli traumaattiseen kierukkarepeämään liittyy lukko-oiretta, on suositeltavaa suorittaa leikkaus kiireellisenä. Myös polven moninivelsidevammat suositellaan hoidettavaksi leikkauksellisesti.
+\end{itemize}
+
+\section{Mikä seuraavista EI ole nilkan instabiilin (leikkaushoitoa vaativan) lateraalimalleolin murtuman merkki?}\label{mikuxe4-seuraavista-ei-ole-nilkan-instabiilin-leikkaushoitoa-vaativan-lateraalimalleolin-murtuman-merkki}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Mediaalinen nivelrako on levinnyt
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Lateraalimalleolin murtumassa on ≤ 2 mm sivuttaissiirtymä
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Nivelhaarukka on inkongruentti
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Kliinisessä kokeessa nilkassa on tunnettavissa sivuttaisliikettä
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+b
+\end{verbatim}
+
+\begin{itemize}
+\item
+  Muut ovat instabiliteetin merkkejä -\textgreater{} instabiilit nilkkamurtumat leikataan
+\end{itemize}
+
+\section{Olkapään apprehension testissä}\label{olkapuxe4uxe4n-apprehension-testissuxe4}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/K23_2020.png}}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Napsahdus on positiivinen löydös
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Kaikki muut vastausvaihtoehdot ovat väärin
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Testataan instabiliteettia
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Humerus luksoituu posteriorisesti
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+c
+\end{verbatim}
+
+\end{solution}
+
+\section{Dislokoitumaton patellan murtuma}\label{dislokoitumaton-patellan-murtuma}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Voidaan hoitaa 6 viikon immobilisaatiolla (kipsihylsy) sallien varaamisen raajalle 4 viikon kuluttua
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Konservatiiviseen hoitoon kuuluu tarvittaessa kivuliaan veripolven punktio ennen kipsausta
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Konservatiivisen hoidon tulos on kohtalainen
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Kannattaa leikata profylaktisesti dislokaatioriskin takia
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+b
+\end{verbatim}
+
+\begin{itemize}
+\item
+  a: Patellamurtuman konservatiivinen hoito on ortoosi/kipsihylsi 3-4 viikkoa ja potilas saa alusta asti kävellessä varata raajaan, kun polvi on ojennettuna. Kons hoito mahdollista, jos polven ojennusvoima on säilynyt eikä lumpion nivelpinnassa ole pykälää tai diastaasia (esim. fissuraalinen poikkimurtuma).
+\item
+  c: Konservatiivinen hoito usein pettää (jos kyseessä poikittainen murtuma), joten c on väärä vastaus.
+\item
+  d: Lumpiomurtumia ei suorastaan profylaktisesti leikata (hyväasentoiset poikkimurtumat kuitenkin usein pettävät, joten rtg-kontrollointi on tärkeää).
+\end{itemize}
+
+\section{Tämä kulma on}\label{tuxe4muxe4-kulma-on}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/K25_2020.png}}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Volaarinen kallistuskulma
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Radiuksen inklinaatio
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Dorsaalinen kallistuskulma
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Radiuksen pituus
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+b
+\end{verbatim}
+
+\end{solution}
+
+\section{Solisluun keskikolmanneksen murtuman konservatiivinen hoito}\label{solisluun-keskikolmanneksen-murtuman-konservatiivinen-hoito}
+
+Valitse yksi:
+a. 3 viikon kohdalla sallitaan elevaatio vaakatasoon ja 6 viikon jälkeen vapaa mobilisaatio kuormittamatta
+b. Kaikki vastausvaihtoehdot ovat oikein
+c.~Kantoside 3 viikkoa
+d.~Viikon kohdalla aloitetaan pendell-liikeharjoitukset
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+b
+\end{verbatim}
+
+\end{solution}
+
+\section{Nilkkamurtuma}\label{nilkkamurtuma}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Weber C-tyypin murtumissa on yli 50\%:sti syndesmoosin repeämä
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Jos lateraalimalleolin murtuman dislokaatio on alle 2 mm, ei leikkaushoito ole tarpeen, vaikka nivelhaarukka näyttäisi hieman leveältä
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Jos mediaalimalleolin murtuma ulottuu nivelen sisälle, on leikkaushoito välttämätön
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Lateraalimalleolin Weber A-tyypin murtumat voidaan hoitaa yleensä konservatiivisesti
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+Taitaa olla jotenkin wikissä väärä kysymyksenasettelu, sillä enemmänkin tässä on vain yksi väärä vastaus (b). Jos olisi pakko valita kuitenkin yksi oikea vastaus, niin se olisi d, koska se on yksiselitteisimmin oikea.
+\end{verbatim}
+
+\begin{itemize}
+\item
+  Weber C -murtumissa on lähes aina syndesmoosin vaurio (käytännössä siis yli 50\%:sti on oikein, mutta hieman harhaanjohtava numero, jonka takia wikissä ajateltu vääräksi vastaukseksi)
+\item
+  Jos on mediaalimalleolin murtuma, niin leikkaushoito on ensisijainen hoitokeino (ehkä ei ole täysin välttämätön, jonka takia wikissä ajateltu vääräksi vastaukseksi)
+\item
+  B on väärin, koska leikkaushoito on tarpeen, jos nivelhaarukka ei ole kongruentti (instabiili murtuma)
+\end{itemize}
+
+\section{Hauislihaksen jänteen irtoaminen distaalisesta insertiosta}\label{hauislihaksen-juxe4nteen-irtoaminen-distaalisesta-insertiosta}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Leikkaukseen liittyy vähän komplikaatioita
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Yleisin urheilijoilla, esimerkiksi painonnostajilla
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Yleisin ruumiillista työtä tekevillä yli 50 vuotiailla miehillä
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Kliininen diagnostiikka vaikeaa, usein sattumalöydös MRI-kuvauksessa
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+c
+\end{verbatim}
+
+\end{solution}
+
+\section{Fractura radii typica: hyväksyttävä asento reposition jälkeen}\label{fractura-radii-typica-hyvuxe4ksyttuxe4vuxe4-asento-reposition-juxe4lkeen}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/K29_2020.png}}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Lyhentyminen harvoin aiheuttaa toiminnallista haittaa työikäisillä
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Kipsi-immobilisaatio estää lyhentymisen syntymisen yli 65-vuotiailla osteoporoosipotilailla
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Lyhentyminen vaikuttaa distaalisen radioulnaarinivelen toimintaan
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Lyhentymistä ei voida riittävän tarkasti mitata röntgenkuvista
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+c
+\end{verbatim}
+
+\end{solution}
+
+\section{Olkaluun yläosan murtuma}\label{olkaluun-yluxe4osan-murtuma}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Stabiili lukkoruuvilevykiinnitys estää kaputnekroosin kehittymisen dislokoituneissa pirstaleisissa murtumissa
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Luksaatiomurtuma on usein ensiavussa helposti reponoitavissa
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Pirstaleisten murtumien hoidossa käytettävä käänteinen tekonivel ei vaadi toimivaa kiertäjäkalvosinta
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Murtumien ilmaantuvuus on laskussa
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+c; Käänteistekonivel ei salli suurta rasitusta, mutta se ei myöskään vaadi toimivaa kiertäjäkalvosinta. Erityisesti vanhusten luksaatiomurtumissa käänteistekonivel suosittu (puolitekonivel nuoremmilla) ja osteosynteesi taas ensisijainen nuorien dislokoituneissa murtumissa. 
+\end{verbatim}
+
+\begin{itemize}
+\item
+  a: Lukitusruuvilevy ei estä kaputnekroosia; se parantaa stabiilisuutta, mutta verenkiertohäiriö voi silti johtaa nekroosiin
+\item
+  b: luksaatiomurtumat ovat vaikeita reponoida
+\item
+  d: Olkamurtumien ilmaantuvuus ei ole laskussa (nousussa väestön ikääntyessä)
+\end{itemize}
+
+\section{Patellamurtuma}\label{patellamurtuma}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/K31_2020.png}}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Hoidon kannalta nivelpinnan pykälällä ei ole merkitystä
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Dislokoitunut murtuma vaatii leikkaushoidon
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Tulee pyrkiä reponoimaan ensiavussa
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Liitännäisvammana on usein patellajänteen repeämä
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+b 
+\end{verbatim}
+
+\begin{itemize}
+\item
+  a: Nivelpinnan pykälällä on merkitystä -\textgreater{} leikkaushoito on yleensä välttämätön
+\item
+  c: dislokoituneen polvilumpion reponointi ei suorastaan vaikuta hoitovalintaan; alun perin dislokoitunut murtuma leikataan
+\item
+  d: patellajänteen repeämä liitännäisvammana ei ole kovinkaan yleinen
+\end{itemize}
+
+\section{Mikä murtuma?}\label{mikuxe4-murtuma-1}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/K32_2020.png}}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Die punch
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Volaarinen Barton
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Smith
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Dorsaalinen Barton
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+d
+\end{verbatim}
+
+\end{solution}
+
+\section{Tibialis posterior lihas}\label{tibialis-posterior-lihas}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Hoitaa polven koukistusta
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Pitää yllä jalkaholvia
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Lihaksen jänne repeää usein nilkkamurtuman yhteydessä
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Hoitaa polven ojennusta
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+b; päätehtäviä on tukea jalan pitkittäistä kaarta (jalkaholvia) sekä osallistua plantaarifleksioon ja invertointiin
+\end{verbatim}
+
+\begin{itemize}
+\item
+  Wikissä väärin (c; ei tyypillisesti repeä nilkkamurtuman yhteydessä)
+\item
+  Ei koukista tai suorista polvea
+\end{itemize}
+
+\section{Fractura radii typica: hyväksyttävä asento reposition jälkeen}\label{fractura-radii-typica-hyvuxe4ksyttuxe4vuxe4-asento-reposition-juxe4lkeen-1}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/K34_2020.png}}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Radiuksen nivelpinta on normaalisti ≥ 20 asteen palmaarisesti kallistuneena
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Murtuman reposition jälkeen dorsaalinen kallistuminen pitäisi olla ≤ 5 astetta
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Murtuman reposition jälkeen dorsaalinen kallistuminen pitäisi olla ≤ 15 astetta
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Radiuksen nivelpinta on normaalisti kohtisuorassa pituusakselia vastaan
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+c
+\end{verbatim}
+
+\end{solution}
+
+\section{Mikä seuraavista rakenteista on quadricepsjänne?}\label{mikuxe4-seuraavista-rakenteista-on-quadricepsjuxe4nne}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/K35_2020.png}}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    3
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    1
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    2
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    4
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+b
+\end{verbatim}
+
+\end{solution}
+
+\section{Akromioklavikulaarinivelen (AC) luksaatio}\label{akromioklavikulaarinivelen-ac-luksaatio}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Paras ja varmasti onnistunut lopputulos saadaan leikkaamalla
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Voidaan useimmiten hoitaa konservatiivisesti, vaikka solisluu olisi luksoitunut posteriorisesti (tyyppi IV)
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Jos solisluun pää nousee ylöspäin, pitää se leikata 2 viikon sisällä
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Tapahtuu usein kaatuessa tai törmätessä olkapää edellä esteeseen
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+Sinänsä c ja d ovat molemmat oikein, mutta d on eniten oikein. 
+\end{verbatim}
+
+\begin{itemize}
+\item
+  a: Leikkaushoito ei aina tuota varmasti onnistunutta lopputulosta ja sitä ei myöskään käytetä lievempiasteisissa luksaatioissa (I-III). AC-nivelen täydellinen pysyvä sijoiltaanmeno (tyypit IV - VI) on yleensä tilanne, jossa leikkaushoidon ajatellaan kokemusperäisesti konservatiivista hoitoa hyödyllisemmäksi, vaikka kirjallisuudessa ei olekaan tästä näyttöä.
+\item
+  b: Useimmiten hoidetaan operatiivisesti, jos tyypin IV luksaatio
+\item
+  c: Jos solisluun pää on noussut yli luun paksuuden verran tai solisluussa on etu-takasuuntainen epävakaus, voidaan leikkaushoitoa harkita (luokat IV‒V)
+\item
+  d: AC-luksaatio voi syntyä joko suoran tai epäsuoran vamman seurauksena. Tavallisemmassa eli suorassa vammassa isku tulee yläraajan ollessa kiinni vartalossa hartian ylätakaosaan. Epäsuorassa vammassa isku tulee ojennetun, vartalossa kiinni olevan yläraajan kautta olkaniveleen ja olkaluun pää iskeytyy olkalisäkkeeseen sitä ylöspäin siirtäen. AC-luksaation tavallisin yksittäinen vammamekanismi on polkupyörällä kaatuminen, ja seuraavana tulevat urheiluun liittyvät vammat
+\end{itemize}
+
+\section{Haglundin deformiteetti}\label{haglundin-deformiteetti}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/K37_2020.png}}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Kalkaneuksen luinen prominenssi
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Taluksen takaosan luinen prominenssi
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Yleisin syy akillesjänteen tendinoosiin
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Ei näy hyvin röntgenkuvassa, paljastuu tavallisesti MRI-kuvauksessa
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+a. Voi esim. aiheuttaa kantapään kipua, varsinkin kun käyttää tiukkoja kenkiä. 
+\end{verbatim}
+
+\begin{itemize}
+\item
+  b: Talus ei liity tähän deformiteettiin
+\item
+  c: Se ei ole suoraan yleisin syy akillesjänteen tendinoosiin (jänteen rappeumamuutos, joka usein johtuu toistuvasta rasituksesta), vaikka se voi siihen myötävaikuttaa
+\item
+  d: Näkyy hyvin röntgenkuvassa, koska on luinen prominenssi
+\end{itemize}
+
+\section{Smithin murtuma}\label{smithin-murtuma}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/K38_2020.png}}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Reposition jälkeen kipsaus pehmustetulla kulmakipsilastalla ranne lievässä volaarifleksiossa ja pronaatiossa
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Distaalinen radiusmurtuma, jossa distaalifragmentti on dorsaalisesti kallistuneena
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Soveltuu hyvin konservatiiviseen hoitoon
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Leikkaushoito tarpeen useimmilla potilailla
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+d
+\end{verbatim}
+
+\begin{itemize}
+\item
+  a: Rannemurtumat lastoitetaan funktioasentoon (lievä ekstensio ja muuten neutraaliasento). Smithin murtumassa lastoitus on volaarinen (vrt. Collesin murtuma, jossa dorsaalinen lasta)
+\item
+  b: Tämä olisi COllesin murtuma (tyyppimurtuma). Smithin murtumassa fragmentti on volaarisesti kallistunut
+\item
+  c: Soveltuu konservatiiviseen hoitoon tietyissä tapauksissa, mutta usein vaatii leikkaushoidon.
+\end{itemize}
+
+\section{Tässä ranteessa on}\label{tuxe4ssuxe4-ranteessa-on}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/K39_2020.png}}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Bartonin murtuma
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Tyypillinen radiusmurtuma (Colles)
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Chaffeurin murtuma
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Smithin murtuma
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+b
+\end{verbatim}
+
+\end{solution}
+
+\section{Olkaluun yläosan murtuma}\label{olkaluun-yluxe4osan-murtuma-1}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Konservatiivinen hoito johtaa usein huonoon toiminnalliseen lopputulokseen
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Yli 5 mm dislokaatio isoloidussa tuberculum majuksen murtumassa vaatii leikkaushoitoa
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Johtaa usein nopeasti (noin 1-2 kuukaudessa) rtg-kuvassa näkyvään kaputnekroosiin
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Yli 60\% olkaluun yläosan murtumista on huonoasentoisia vaatien leikkaushoitoa
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+b
+\end{verbatim}
+
+\begin{itemize}
+\item
+  Dislokoitumattoman tai lievästi dislokoituneen (\textless{} 5 mm) murtuman hoito on konservatiivinen. Raaja pidetään enintään 3 viikkoa mitellassa. ps. Muiden olkapään Neerin fragmenttien dislokoitumisrajana tyypillisesti pidetään 10mm
+\item
+  a: Konservatiivinen hoito johtaa useimmiten hyvään lopputulokseen niissä murtumissa, joissa se on indikoitu
+\item
+  c: Kaputnekroosi on harvinainen ja liittyy pääasiassa monilohkomurtumiin (esim. 3--4 osainen murtuma) ja murtumaluksaatioihin, ei yksittäiseen tuberculum majuksen murtumaan
+\item
+  d: lähteestä riippuen n.~70-80\% olkaluun yläosan murtumista on hyväasentoisia murtumia
+\end{itemize}
+
+\section{Avomurtumat}\label{avomurtumat}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Gradus IIIB: kirurgista korjausta vaativa verisuonivamma
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Gradus IIIC: traumaattinen amputaatio
+  \end{enumerate}
+\item
+  c.Gradus IIIA: Laaja iho- ja lihaskudosvamma, joka vaatii lihaskielekkeen
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Gradus I vamma: terävä luufragmentti perforoi ihon sisältä ulospäin
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+d
+\end{verbatim}
+
+\begin{itemize}
+\item
+  a: Avomurtuman yhteydessä korjausta vaativa verisuonivamma = Gustilo-Andersonin luokka IIIc (IIIb = vaatii kielekerekonstruktion)
+\item
+  b: Gradus IIIC: korjausta vaativa verisuonivamma (Gustilo-Andersonin luokitus ei kuvaile amputaatiovammoja)
+\item
+  c: Gradus IIIa: laaja pehmytkudosvaurio, mutta se ei vaadi kielekerekonstruktiota
+\end{itemize}
+
+\section{Polven ojentajamekanismiin kuuluvat}\label{polven-ojentajamekanismiin-kuuluvat}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Tuberositas tibiae, patellajänne, patella, quadricepsjänne ja -lihas
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Posterolateraalinurkka ja takakapseli
+  \end{enumerate}
+\item
+  c.ACL, PCL ja mediaalimeniski
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Quadricepsjänne, LCL ja patella
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+a
+\end{verbatim}
+
+\end{solution}
+
+\section{Katkennut akillesjänne}\label{katkennut-akillesjuxe4nne}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Voidaan yleensä hoitaa konservatiivisesti
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Kaikki vastausvaihtoehdot ovat oikein
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Joka 3. potilaalla esioireita ja diagnoosi viivästyy joka 4. potilaalla
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Yleensä poikki 3-4 cm kantaluuinsertion yläpuolelta
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+b
+\end{verbatim}
+
+\begin{itemize}
+\item
+  a: Akillesjänteen repeämien hoidossa suositaan konservatiivista hoitoa, koska ortoosilla toteutetulla hoidolla saavutetaan käytännössä sama paranemistulos kuin operatiivisella hoidolla
+\item
+  b: Potilailla löytyy akillesjänteestä lähes aina degeneratiivisia muutoksia, mutta 2/3:ssa tapauksista katkeaminen tapahtuu ilman minkäänlaisia edeltäviä oireita. Diagnostiikassa petollista on se, että usein vähäinen nilkan ekstensio-fleksioliike jää kuormittamattomana jäljelle -\textgreater{} diagnoosi viivästyy.
+\item
+  d: Tyypillisesti poikkeaa ns. akilleksen watershed-alueelta, jossa verenkierto on heikointa. Tämä sattuu olemaan n.~2-6cm insertiokohdan yläpuolella (lähteestä riippuen senttimäärät hieman vaihtelevat)
+\end{itemize}
+
+\section{Olkaluun yläosan murtuman konservatiivinen hoito}\label{olkaluun-yluxe4osan-murtuman-konservatiivinen-hoito}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Yläraaja tuetaan 2-3 viikoksi kantositeeseen ja kevyet heiluriliikkeet aloitetaan viikon sisällä
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Aktiiviset kiertoliike ja abduktioharjoitukset aloitetaan 3-5 viikon jälkeen
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Kaikki vastausvaihtoehdot ovat oikein
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Tavallisin komplikaatio on olkanivelen kipu ja jäykistyminen
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+c
+\end{verbatim}
+
+\end{solution}
+
+\section{Kuinka kuvan vamma tulisi ensisijaisesti hoitaa?}\label{kuinka-kuvan-vamma-tulisi-ensisijaisesti-hoitaa}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/K45_2020.png}}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Repositio ja kantoside
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Repositio ja kulmakipsi
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Repositio ja vapaa mobilisaatio
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Leikkaus
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+c
+\end{verbatim}
+
+\begin{itemize}
+\item
+  Kyynärnivelluksaation primaarihoito tutkimuksen jälkeen on suljettu paikalleenasettaminen. Koska suurimpaan osaan kyynärnivelen sijoiltaanmenoista ei liity merkittäviä nivelsidevammoja, on tämä yleensä riittävä hoito
+\item
+  Kyynärnivelen tulisi pysyä paikallaan ojennus-koukistussuunnassa sektorilla 60‒130, jotta konservatiivisella hoidolla on edellytykset onnistua. Operatiivisen hoidon indikaatioita ovat repositionjälkeinen instabiliteetti fleksio-ekstensiosuunnassa, intra-artikulaarinen murtumafragmentti, avoluksaatio tai uusintaluksaatio konservatiivisessa hoidossa.
+\end{itemize}
+
+\section{Syndesmoosin tehtävä on}\label{syndesmoosin-tehtuxe4vuxe4-on}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Tarjota verenkierto fibulan distaaliosaan ja tibian mediaaliosiin
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Kiinnittää talus TC-niveleen
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Stabiloida säären yläosa ja mahdollistaa polven optimaalinen liikerata
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Pitää tibia ja fibula toiminnallisesti yhdessä, jotta nilkkahaarukka pysyy kongruenttina fysiologisen kuormituksen aikana
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+d
+\end{verbatim}
+
+\end{solution}
+
+\section{Quadricepsjänteen repeämä}\label{quadricepsjuxe4nteen-repeuxe4muxe4}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Aiheuttaa liikeheikkouden polven koukistukseen potilaan ollessa vatsamakuulla
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Johtuu yleensä suorasta iskusta polven seutuun
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Voidaan yleensä hoitaa konservatiivisesti
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Tuntuu usein palpoituvana kuoppana polvilumpion proksimaalipuolella ja potilas ei pysty nostamaan raajaa ojennettuna
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+d
+\end{verbatim}
+
+\end{solution}
+
+\section{Mikä seuraavista rakenteista on processus coracoideus?}\label{mikuxe4-seuraavista-rakenteista-on-processus-coracoideus}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/K48_2020.png}}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    1
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    2
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    4
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    3
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+b
+\end{verbatim}
+
+\end{solution}
+
+\section{Hamstring jännerepeämä}\label{hamstring-juxe4nnerepeuxe4muxe4}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Testataan vastustetulla lonkan fleksiolla
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Kaikki muut vastausvaihtoehdot ovat väärin
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Aiheutuu vammautuneen alaraajan voimakkaasta lonkan ekstensiosta
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Totaaliruptuura hoidetaan useimmiten konservatiivisesti
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+b
+\end{verbatim}
+
+\begin{itemize}
+\item
+  a: Hamstringit eivät suorita lonkan fleksiota, vaan lonkan ekstensiota ja polven koukistusta.
+\item
+  c: Aiheutuu vammautuneen alaraajan voimakkaasta lonkan fleksiosta (esim. liukastuminen spagaattiin)
+\item
+  d: Totaaliruptuura hoidetaan useimmiten leikkauksellisesti. Irronnut lihasryhmä istutetaan takaisin irtoamakohtaansa (istuinkyhmy) yleensä ankkurikiinnitteisin langoin. Hoito olisi hyvä toteuttaa ensimmäisten viikkojen aikana (kuukauden sisällä), sillä lihaksen lyhentymä voi estää myöhäisvaiheessa jänteen palauttamisen paikalleen ja vaurion aiheuttama kiinnikkeisyys ympäristöön, erityisesti iskiashermoon tai sen haaroihin, tekee myöhäisvaiheen leikkauksesta merkittävästi haastavampaa ja riskialttiimpaa
+\end{itemize}
+
+\chapter{2021 (Invictus)}\label{invictus}
+
+Tähän yhteyteen laitettu vain ne kysymykset, joita ei ollut aiemmassa vuoden 2020 tentissä.
+
+\section{Miten tämän potilaan malletsormi (vasarasormi) hoidetaan?}\label{miten-tuxe4muxe4n-potilaan-malletsormi-vasarasormi-hoidetaan}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/K1_2021.png}}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Lastoitus 2vk ajan
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Lastoitus 6vk ajan
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Teippaus viereiseen sormeen 4vk ajan
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Leikkaushoito
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+b
+\end{verbatim}
+
+\begin{itemize}
+\item
+  Ojentajajänteen vaurio sormen DIP-nivelseudussa aiheuttaa kärkijäsenen ojennusvajauksen (mallet-deformiteetti). Vamma voi syntyä suljettuna tai avoimena joko jänteen katkeamisena tai liittyä distaalifalangin murtumaan. Tässä yhteydessä nyt ei ole murtumaa todettavissa.
+\item
+  Hoidetaan tyypillisesti konservatiivisesti DIP-nivel lastalla hyperekstensioon n.~6 viikon ajaksi. Hoidon aikana DIP-niveltä ei saa koukistaa. Lastoitusta kannattaa kokeilla, vaikka hoidon aloitus olisi viivästynyt. Jatkohoitona lastaa kannattaa pitää vielä 8 viikon ajan öisin.
+\item
+  Leikkaushoito on indikoitua, jos mallet-fracturessa fragmentti ei reponoidu, sen koko käsittää lähteestä riippuen 1/3 tai 1/2 tai enemmän nivelpinnasta ja diastaasi on yli 2 mm
+\end{itemize}
+
+\section{Oheisen kuvan potilaalla on}\label{oheisen-kuvan-potilaalla-on}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/K3_2021.png}}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Lunotriquetraalisen ligamentin repeämä
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Skafolunaarisen ligamentin repeämä
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Perilunaarinen luksaatio
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Veneluun murtuma
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+b
+\end{verbatim}
+
+\begin{itemize}
+\item
+  Skafolunaariligamentin vaurio on yleisin ranteen ligamenttivaurio. Vamma syntyy yleisimmin kaaduttaessa ja potilaan ottaessa vastaan ojennetulla kädellä. Ligamenttivamma voi olla itsenäinen tai liittyä esimerkiksi radius- tai skafoideummurtumaan.
+\item
+  Röntgenissä näkyy SL-välin leveäminen (tyypillisesti alle 2mm)
+\item
+  Epäiltäessä skafolunaarista vauriota potilaan lähettämisessä käsikirurgiseen arvioon ei ole syytä viivytellä, sillä nivelsidekorjaus voidaan yleensä tehdä akuutissa vaiheessa 4‒6 viikon sisällä vammasta. Hoitamattomana SL-välin avautuminen voi jatkua ja johtaa etenevään artroosiin (SLAC = scaphoid lunate advanced collapse), jonka hoitona on ranteen osittainen tai täydellinen luudutus.
+\end{itemize}
+
+\section{Osteosarkooma}\label{osteosarkooma}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    On tavallisin maligni rustotuumori
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Ennuste 30\% yli 5 vuotta
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Hoitona pre- ja postoperatiivinen systostaatti, radikaaliresektio ja rekonstruktio
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Yleisin yli 65-vuotiailla, metafyysialue
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+c
+\end{verbatim}
+
+\begin{itemize}
+\item
+  a: On tavallisin primaarinen maligni luutuumori. Tavallisin primaarinen maligni rustoa tuottava tuumori on kondrosarkooma.
+\item
+  b: 5-vuotiselossaoloennuste on n.~70-80\% (parantunut huomattavasti viime vuosikymmeninä). Ennuste tosin on alle 30\% metastaattisessa taudissa
+\item
+  d: Yleisin lapsilla ja nuorilla aikuisilla (useimmiten alle 25v). Ilmenee vastauksen mukaan kuitenkin useimmiten metafyysialueilla (varsinkin polven ympärillä eli distaalisessa femurissa tai proksimaalisessa tibiassa).
+\end{itemize}
+
+\section{Nilkkamurtuma}\label{nilkkamurtuma-1}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Weber C-tyypin murtumissa syndesmoosi ei käytännössä repeä
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Lateraalimalleolin Weber A-tyypin murtumat voidaan hoitaa yleensä konservatiivisesti
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Mediaalimalleolin murtuma liittyy aina Weber B-tyypin murtumaan
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Jos lateraalimalleolin murtuman dislokaatio on alle 2mm, ei leikkaushoito ole tarpeen, vaikka nivelhaarukka näyttäisi hieman leveältä
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+b
+\end{verbatim}
+
+\begin{itemize}
+\item
+  a: Weber C-murtumissa syndesmoosi käytännössä aina repeää.\\
+\item
+  b: Weber A-murtumat ovat yleensä stabiileja, jonka takia ne voidaan hoitaa konservatiivisesti (tyypillisesti ortoosi tai kipsihoito 1-3 viikkoa; varaus kivun mukaan)
+\item
+  c: Mediaalimalleolin murtuma voi esiintyä monissa yhdistelmissä, mutta useimmiten tapahtuvat Weber C-murtumien yhteydessä.
+\item
+  d: Leikkaushoito on tarpeen, jos nivel on instabiili ja yksi tämän merkki on inkongruentti nivelhaarukka röntgenissä.
+\end{itemize}
+
+\section{Olkaluun yläosan murtuma}\label{olkaluun-yluxe4osan-murtuma-2}
+
+Valitse yksi:
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Stabiili lukkoruuvilevytys estää kaputnekroosin kehittymisen dislokoituneissa pirstaleisissa murtumissa
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Murtumien ilmaantuvuus on laskussa
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Pirstaleisten murtumien hoidossa käänteinen tekonivel on yleistynyt viime vuosina
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Luksaatiomurtuma on usein ensiavussa helposti reponoitavissa
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+c; Käänteistekonivel ei salli suurta rasitusta, mutta se ei myöskään vaadi toimivaa kiertäjäkalvosinta. Erityisesti vanhusten luksaatiomurtumissa käänteistekonivel suosittu (puolitekonivel nuoremmilla) ja osteosynteesi taas ensisijainen nuorien dislokoituneissa murtumissa. 
+\end{verbatim}
+
+\begin{itemize}
+\item
+  a: Lukitusruuvilevy ei estä kaputnekroosia; se parantaa stabiilisuutta, mutta verenkiertohäiriö voi silti johtaa nekroosiin
+\item
+  b: Olkamurtumien ilmaantuvuus ei ole laskussa (nousussa väestön ikääntyessä)
+\item
+  d: Luksaatiomurtumat ovat vaikeita reponoida
+\end{itemize}
+
+\section{Viidennen kämmenluun kaulan (Boxerin) murtuman yleisin hoitomuoto:}\label{viidennen-kuxe4mmenluun-kaulan-boxerin-murtuman-yleisin-hoitomuoto}
+
+Valitse yksi
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Seuranta ilman toimenpiteitä
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Leikkaushoito
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Pikkurilli ja nimetön kipsataan SAFE-asentoon
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Pikkurilli teipataan viereiseen sormeen
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+d
+\end{verbatim}
+
+\begin{itemize}
+\item
+  Jos Boxerin murtumassa todetaan hyväksyttävä asento (nivel on kongruentti ja angulaatio alle 45-60 astetta eikä kiertovirhettä) ja potilas saa ojennettua sormen suoraksi, niin murtuma hoidetaan konservatiivisesti teippaamalla sormi viereiseen nimettömään n.~4 viikon ajaksi
+\end{itemize}
+
+\section{Solisluun murtumat}\label{solisluun-murtumat-1}
+
+Valitse yksi
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Keksikolmanneksen murtumat ovat yleisimpiä
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Keskikolmanneksen murtuamt hoidetaan yleensä konservatiivisesti
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Kaikki kysymyksen vastausvaihtoehdot ovat oikein
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Leikkausta harkitaan, jos dislokaatiota murtumassa on yli luunpaksuuden verran
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+c
+\end{verbatim}
+
+\end{solution}
+
+\section{Hiihtäjän peukalo}\label{hiihtuxe4juxe4n-peukalo}
+
+Valitse yksi
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Hoidetaan yleensä ilman röntgenkuvausta
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    On peukalon koukistajanjänteen sulkeinen repeämä
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Vaatii leikkaushoitoa, jos nivel on epätukeva
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Aiheutuu peukalon metakarpofalangeaali (MCP)-nivelen vääntymisestä ulnaarideviaatioon
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+c
+\end{verbatim}
+
+\begin{itemize}
+\item
+  a: Vamma tulee kuvantaa
+\item
+  b: Hiihtäjänpeukalo = Peukalon MCP-nivelen ulnaarisen kollateraaliligamentin osittainen tai täydellinen vamma. Syntyy abdusoivan voiman vaikutuksesta eli tyypillisesti peukalon vääntyessä radiaalisesti esim. kaaduttaessa hiihtäessä.
+\item
+  c: Nivelen stabiliteetti on tutkittava tarkasti. Kivun takia voi olla alkuvaiheessa vaikeaa saada luotettavaa käsitystä nivelsiteen stabiliteetista. Tarvittaessa sormi puudutetaan luotettavan testaustuloksen saamiseksi tai voi immobilisoida peukalon kipsilastalla tai ortoosilla ja tutkia nivelside uudelleen muutaman päivän kuluttua. Täydelliseen repeämään viittaavat \textgreater{} 30°:n periksianto radiaalisuuntaan, \textgreater{} 15°:n ero terveeseen puoleen verrattuna ja liikealan napakan päätepisteen (end-point) puuttuminen. Instabiili nivelside hoidetaan operatiivisesti. Leikkauksen jälkeen peukalo immobilisoidaan kyynärvarteen ulottuvalla dorsaalisella kipsilastalla tai ortoosilla 6 viikon ajan.
+\item
+  d: Aiheutuu peukalon metakarpofalangeaali (MCP)-nivelen vääntymisestä radiaalideviaatioon. Peukalon MCP-nivelen radiaalikollateraalivamma, joka on edellistä huomattavasti harvinaisempi, syntyy taas ulnaarideviaatiossa. Hoidetaan samojen periaatteiden mukaisesti.
+\end{itemize}
+
+\section{Luunmurtuman paraneminen}\label{luunmurtuman-paraneminen-1}
+
+Valitse yksi
+
+\begin{itemize}
+\tightlist
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \tightlist
+  \item
+    Fractura itineraria syntyy tyypillisesti laskettelurinteessä
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Yläraajan kierteinen murtuma luutuu yleensä 12 viikossa
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Putkiluu paranee nopeammin kuin hohkaluu
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi}.}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Consolidatio tarda tarkoittaa hidastunutta luutumista
+  \end{enumerate}
+\end{itemize}
+
+\begin{solution}
+\leavevmode
+
+Vastaus
+
+\begin{verbatim}
+d
+\end{verbatim}
+
+\begin{itemize}
+\item
+  a: Fractura itineraria = rasitusmurtuma (fatigue fracture); murtumia, joille on tyypillistä kumuloiva syklinen kuormitus, joka johtaa asteittain täydelliseen murtumaviivaan muuten suhteellisen mekaanisesti terveessä luussa
+\item
+  b: Yläraajan kierteinen murtuma luutuu yleensä 6 viikossa (lujittuu 3 viikossa); Yläraajan poikkimurtuma taas tyypillisesti luutuu 12 viikossa
+\item
+  c: Hohkaluu paranee nopeammin. Hohkaluun hyvä verenkierto ja paikallisten mesenkymaalisten kantasolujen runsas määrä takaavat yleensä murtuman nopean paranemisen. Metafyysimurtumat siis luutuvat nopeammin kuin diafyysimurtumat.
+\item
+  d: Hidastunut luutuminen (delayed union, consolidatio tarda) tarkoittaa, että 3 kk kohdalla ei havaita kliinisiä/radiologisia merkkejä luutumisen käynnistymisestä (todetaan hetkuminen ja kipu, raaja ei kestä kuormitusta)
+\end{itemize}
+
+\chapter{2022 (Cupidus)}\label{cupidus}
+
+\section{Reisiluun distaaliset murtumat}\label{reisiluun-distaaliset-murtumat}
+
+\chapter{Blocks}\label{blocks}
+
+\section{Equations}\label{equations}
+
+Here is an equation.
+
+\begin{equation} 
+  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
+  \label{eq:binom}
+\end{equation}
+
+You may refer to using \texttt{\textbackslash{}@ref(eq:binom)}, like see Equation \eqref{eq:binom}.
+
+\section{Theorems and proofs}\label{theorems-and-proofs}
+
+Labeled theorems can be referenced in text using \texttt{\textbackslash{}@ref(thm:tri)}, for example, check out this smart theorem \ref{thm:tri}.
+
+\begin{theorem}
+\protect\hypertarget{thm:tri}{}\label{thm:tri}For a right triangle, if \(c\) denotes the \emph{length} of the hypotenuse
+and \(a\) and \(b\) denote the lengths of the \textbf{other} two sides, we have
+\[a^2 + b^2 = c^2\]
+\end{theorem}
+
+Read more here \url{https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html}.
+
+\section{Callout blocks}\label{callout-blocks}
+
+The R Markdown Cookbook provides more help on how to use custom blocks to design your own callouts: \url{https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html}
+
+\chapter{Sharing your book}\label{sharing-your-book}
+
+\section{Publishing}\label{publishing}
+
+HTML books can be published online, see: \url{https://bookdown.org/yihui/bookdown/publishing.html}
+
+\section{404 pages}\label{pages}
+
+By default, users will be directed to a 404 page if they try to access a webpage that cannot be found. If you'd like to customize your 404 page instead of using the default, you may add either a \texttt{\_404.Rmd} or \texttt{\_404.md} file to your project root and use code and/or Markdown syntax.
+
+\section{Metadata for sharing}\label{metadata-for-sharing}
+
+Bookdown HTML books will provide HTML metadata for social sharing on platforms like Twitter, Facebook, and LinkedIn, using information you provide in the \texttt{index.Rmd} YAML. To setup, set the \texttt{url} for your book and the path to your \texttt{cover-image} file. Your book's \texttt{title} and \texttt{description} are also used.
+
+This \texttt{gitbook} uses the same social sharing data across all chapters in your book- all links shared will look the same.
+
+Specify your book's source repository on GitHub using the \texttt{edit} key under the configuration options in the \texttt{\_output.yml} file, which allows users to suggest an edit by linking to a chapter's source file.
+
+Read more about the features of this output format here:
+
+\url{https://pkgs.rstudio.com/bookdown/reference/gitbook.html}
+
+Or use:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{?bookdown}\SpecialCharTok{::}\NormalTok{gitbook}
+\end{Highlighting}
+\end{Shaded}
+
+\end{solution}
+
+\end{solution}
+
+\end{solution}
+
+\end{solution}
+
+\end{solution}
+
+\end{solution}
+
+\end{solution}
+
+\end{solution}
+
+\end{solution}
+
+\end{solution}
+
+\end{solution}
+
+\end{solution}
+
+\end{solution}
+
+\end{solution}
+
+\end{solution}
+
+\end{solution}
+
+\end{solution}
+
+\end{solution}
+
+\end{solution}
+
+\end{solution}
+
+\end{solution}
+
+\end{solution}
+
+\end{solution}
+
+\end{solution}
+
+\end{solution}
+
+\end{solution}
+
+\end{solution}
+
+\end{solution}
+
+\end{solution}
+
+\bibliography{book.bib,packages.bib}
+
+\end{document}

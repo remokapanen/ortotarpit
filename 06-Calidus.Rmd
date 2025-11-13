@@ -1,0 +1,187 @@
+# 2025 (Calidus)
+
+Tässä vain nyt aikaisimmat docxiin laitetut tärpit. 
+
+## Minkä rakenteiden välillä AC-nivel?
+
+Ei vaihtoehtoja, mutta tulisi osata vastata ilmankin
+
+<div class="solution">
+  <button class="solution-button" data-label="Vastaus" data-hide-label="Piilota vastaus">
+    Vastaus
+  </button>
+  <div class="solution-content">
+    acromionin ja solisluun
+  
+acromion on suomeksi olkalisäke 
+
+![](images/ac.png)
+  </div>
+</div>
+
+## Sormi lähtenyt irti. Laitat keittosuolataitoksiin ja kahteen muovipussiin. Mihin laitat pussin?
+
+Valitse yksi
+
+- a. Jää
+- b. Jäävesi
+- c. Kahden kylmäpakkauksen väliin
+- d. Huoneenlämpöiseen veteen
+
+
+<div class="solution">
+  <button class="solution-button" data-label="Vastaus" data-hide-label="Piilota vastaus">
+    Vastaus
+  </button>
+  <div class="solution-content">
+    b
+
+Itse kudoksen ei siis tule olla kontaktissa jään kanssa, eikä jääpussien välissä, koska kudos ei saa jäätyä. 
+
+![](images/Irronnutsormi_2022.png)
+  </div>
+</div>
+
+## Milloin pysyvän vamman haittaluokitus voidaan tehdä vakuutusta varten (tai jotain sinne päin)
+
+Valise yksi 
+
+- a. 2 vuoden kuluttua
+- b. 2 kuukauden kuluttua
+- c. 2 viikon kuluttua
+- d. 2 päivän kuluttua
+
+<div class="solution">
+  <button class="solution-button" data-label="Vastaus" data-hide-label="Piilota vastaus">
+    Vastaus
+  </button>
+  <div class="solution-content">
+    a
+    
+Käden vammoissa lopullinen hoitotulos on arvioitavissa keskimäärin noin vuoden kuluttua vammautumisesta tai viimeisestä toimenpiteestä. Korkeissa hermovammoissa aika on noin kaksi vuotta. 
+  </div>
+</div>
+
+## Sormi lähtenyt ihoriekaletta lukuun ottamatta irti sirkkelillä. Mitä teet?
+
+Valitse toinen
+
+- a. Lastoitan anatomiseen asentoon ja lähetän ESH
+- b. Irrotan kokonaan ja laitan suolaliuostaitokset, muovipussit ja jäähän
+
+<div class="solution">
+  <button class="solution-button" data-label="Vastaus" data-hide-label="Piilota vastaus">
+    Vastaus
+  </button>
+  <div class="solution-content">
+    a
+    
+Älä koskaan irrota raajan osaa pakkaamista varten. Kannattelevassa osassa voi olla tärkeä hermo.  
+  </div>
+</div>
+
+## Subscapularista voidaan testata
+
+Valitse toinen: 
+
+- a. Pyytämällä potilasta painamaan kämmentä vatsaa vasten
+- b. Ulkokierto tms.
+
+<div class="solution">
+  <button class="solution-button" data-label="Vastaus" data-hide-label="Piilota vastaus">
+    Vastaus
+  </button>
+  <div class="solution-content">
+    a
+    
+Belly press testi. Testaa sisärotaatiota ja subscapularis on ainoa sisärotaattori cuff-lihaksista. Toinen ehkä yleisemmin käytetty testi on lift off-testi, jossa potilas laittaa kätensä selän puolelle ja pyydetään työntämään se poispäin selästä. 
+
+b: Subscapularis on sisäkiertäjä. Ulkokierto testaa infraspinatusta ja teres minoria. 
+  </div>
+</div>
+
+## Gustilo-Andersonin luokka 3A, mikä pitää paikkansa?
+
+Valitse yksi
+
+- a. Tarvitaan verisuonikirurgia
+- b. Laaja ihovaurio, mutta ei lihasvauriota
+- c. Ei tarvita ihokielekettä
+
+<div class="solution">
+  <button class="solution-button" data-label="Vastaus" data-hide-label="Piilota vastaus">
+    Vastaus
+  </button>
+  <div class="solution-content">
+    c
+    
+3A (A = adequate eli ei tarvita kielekettä) 
+
+a: 3C tarvitaan verisuonikirurgia 
+
+b: Voi olla lihasvauriota
+
+![](images/Gustilo.png)
+  </div>
+</div>
+
+## Potilaalla nilkan inversio. Ei pysty varaamaan jalalleen. Lateraalimalleoli ja siitä koko matkan varpaisiin asti aristaa. Nilkan röntgenkuvassa ei murtumaa. Mitä teet?
+
+Valitse yksi: 
+
+- a. Jalkaterän röntgen
+- b. Kepit ja kotiin
+- c. Päivystyksellinen MRI
+
+<div class="solution">
+  <button class="solution-button" data-label="Vastaus" data-hide-label="Piilota vastaus">
+    Vastaus
+  </button>
+  <div class="solution-content">
+    a
+    
+Jalkaterä ja varpaat aristaa eikä pysty varaamaan -> jalkaterän rtg indikoitu 
+  </div>
+</div>
+
+## Hamstring
+
+Valitse yksi
+
+- a. Etureiden hematooma merkki repeämästä
+- b. Voi repeytyä voimakkaassa lonkan ekstensiossa
+- c. Lihaksiin kuuluu m. semitendinosus, semimembranosus, quadriceps femoris
+
+<div class="solution">
+  <button class="solution-button" data-label="Vastaus" data-hide-label="Piilota vastaus">
+    Vastaus
+  </button>
+  <div class="solution-content">
+    Ei mikään näistä
+    
+Jos tärpin kirjoittaja on sattunut kirjoittamaan quadriceps femoris väärin ja onkin tarkoittanut biceps femoris, niin silloin c on oikein (hamstringit = m. semitendinosus, semimembranosus, biceps femoris (caput longum)). 
+
+a: Takareiden hematooma viittaa hamstring-repeämään 
+
+b: Voi repeytyä voimakkaassa lonkan fleksiossa (esim. liukastuminen spagaattiin)
+  </div>
+</div>
+
+## Lonkkamurtumista paljon kysymyksiä (en muista mitkä vaihtoehdot mihinki)
+
+Ei selkeitä jaotteluita, mutta listattu erilaisia vaihtoehtoja: tässä nyt kommentteja sen suhteen onko vaihtoehto oikein vai väärin. 
+
+- Kuolleisuus suurta = Oikein. Kuolleisuus 1. vuoden aikana lonkkamurtuman jälkeen on 20% ja varhaiskuolevuus n. 6%. 
+- Ei heikennä elämänlaatua = Väärin. Vain noin puolella (~50%) niistä, jotka asuivat ennen murtumaa itsenäisesti kotona ja liikkuivat itsenäisesti kodin ulkopuolella, murtumaa edeltänyt toimintakyky säilyy. 
+- Ei tarvita operatiivista hoitoa enää, kun konservatiivinen hoito kehittynyt = Väärin. Lonkkamurtuman hoito on pääsääntöisesti operatiivinen (tietyissä harvoissa tilanteissa konservatiivinen)
+- Suurin osa yli 90-vuotiailla = Väärin. Potilaiden keski-ikä on 79 vuotta (mediaani 82)
+- Leikkauksessa 10% peroneuspareesin riski = Väärin. Enemmänkin 1% luokkaa. 
+- Miehillä yleisempää = Väärin. Naisilla yleisempää (n. 66%)
+
+## Lantiorenkaan murtuma
+
+Taas listattu erilaisia vaihtoehtoja:
+
+- Molemmat SI-nivelet hajoavat yleensä kokonaan = Väärin. SI-nivelet voivat vaurioitua osittain tai toispuolisesti, mutta molempien täydellinen hajoaminen on harvinaista ja liittyy erittäin vaikeaan traumaenergiaan (esim. korkeaenerginen lantion halkaisemistyyppinen vamma).
+- Molemminpuolisessa ramusmurtumassa eksterni fiksaatio = Väärin. Molemminpuolinen ramusmurtuma voi olla stabiili. Eksterni fiksaatio vain jos instabiili murtuma tai epäillään merkittävää verenvuotoa. 
+- Jotain Open book
