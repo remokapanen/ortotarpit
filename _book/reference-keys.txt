@@ -241,3 +241,5 @@ potilaalla-nilkan-inversio.-ei-pysty-varaamaan-jalalleen.-lateraalimalleoli-ja-s
 hamstring
 lonkkamurtumista-paljon-kysymyksiä-en-muista-mitkä-vaihtoehdot-mihinki
 lantiorenkaan-murtuma
+septinen-nivelneste-mitä-löydöksiä
+trokanteerinen-lonkkamurtuma

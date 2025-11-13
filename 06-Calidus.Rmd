@@ -180,8 +180,68 @@ Ei selkeitä jaotteluita, mutta listattu erilaisia vaihtoehtoja: tässä nyt kom
 
 ## Lantiorenkaan murtuma
 
-Taas listattu erilaisia vaihtoehtoja:
+Valitse yksi
 
-- Molemmat SI-nivelet hajoavat yleensä kokonaan = Väärin. SI-nivelet voivat vaurioitua osittain tai toispuolisesti, mutta molempien täydellinen hajoaminen on harvinaista ja liittyy erittäin vaikeaan traumaenergiaan (esim. korkeaenerginen lantion halkaisemistyyppinen vamma).
-- Molemminpuolisessa ramusmurtumassa eksterni fiksaatio = Väärin. Molemminpuolinen ramusmurtuma voi olla stabiili. Eksterni fiksaatio vain jos instabiili murtuma tai epäillään merkittävää verenvuotoa. 
-- Jotain Open book
+- a. Open book-vammassa SI-nivelet hajoavat yleensä kokonaan
+- b. Molemminpuolisessa ramusmurtumassa eksterni fiksaatio
+- c. Ramusmurtumat tyypillisesti levytetään etukautta
+- d. C-tyypin murtumassa todetaan vammautuneen puolen vertikaalinen siirtymä
+
+<div class="solution">
+  <button class="solution-button" data-label="Vastaus" data-hide-label="Piilota vastaus">
+    Vastaus
+  </button>
+  <div class="solution-content">
+    d
+    
+a: SI-nivel ei tyypillisesti hajoa kokonaan open bookissa, vaan osittain repeää tai venyy. 
+
+b ja c: Ramusmurtumat eivät tyypillisesti vaadi fiksaatiota tai operaatiota
+
+d: C-tyypin vammoissa posteriorinen rengas on täysin instabiili ja todetaan rotationaalisen instabiliteetin lisäksi vertikaalista instabiliteettiä
+  </div>
+</div>
+
+## Septinen nivelneste, mitä löydöksiä
+
+Valitse yksi
+
+- a. leukosyytit yli 40.000
+- b. laktaatti yli 10 
+- c. granulosyytit yli 90% 
+- d. kaikki oikein 
+
+<div class="solution">
+  <button class="solution-button" data-label="Vastaus" data-hide-label="Piilota vastaus">
+    Vastaus
+  </button>
+  <div class="solution-content">
+    c
+  </div>
+</div>
+
+## Trokanteerinen lonkkamurtuma 
+
+Valitse yksi
+
+- a. gammanaulaus tehdään kylkiasennossa läpivalaisukontrollissa
+- b. liukuruuvi-levy-yhdistelmäleikkauksen jälkeen voidaan heti sallia täyspainovaraus
+- c. alueen murtumien ongelmana on heikko verenkierto 
+- d. joku muu
+
+<div class="solution">
+  <button class="solution-button" data-label="Vastaus" data-hide-label="Piilota vastaus">
+    Vastaus
+  </button>
+  <div class="solution-content">
+    a
+
+Nämä murtumat kiinnitetään liukuruuvilevy-yhdistelmällä tai ison trokanterin yläkärjen kautta asetetulla ydinnaulalla, johon yhdistetään reisiluun päähän suunnattu liukuruuvi. Trokanteerisia murtumia ei yleensä voida hoitaa tekonivelleikkauksella.
+
+b: Väärin, sallitaan _kävelytuen tai sauvojen kanssa_ heti
+    
+c: Trokanteeriset (sarvennoisten alueen) murtumat ovat reisiluun kaulan murtumiin verrattuna paremman verenkierron alueella ja luutuvat siten hyvin
+
+![](images/kylkiasento.png)
+  </div>
+</div>
