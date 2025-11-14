@@ -245,3 +245,42 @@ c: Trokanteeriset (sarvennoisten alueen) murtumat ovat reisiluun kaulan murtumii
 ![](images/kylkiasento.png)
   </div>
 </div>
+
+## Kuinka nopeasti käden ojentajajänne palaa täyteen voimaansa ojentajajännekorjauksen jälkeen? 
+
+Valitse yksi 
+
+- a. 2vk 
+- b. 2kk 
+- c. 6k
+- d. 1v 
+
+<div class="solution">
+  <button class="solution-button" data-label="Vastaus" data-hide-label="Piilota vastaus">
+    Vastaus
+  </button>
+  <div class="solution-content">
+    b
+    
+Ojentajajännekorjauksen jälkeen sormi immobilisoidaan leikkauksen jälkeen 2-5 viikon ajaksi. 
+
+Koukistajajännekorjauksen jälkeen sormi mobilisoidaan 2-5 vuorokauden kuluessa suojalastan avulla. Koukistajajännekorjaus palaa täyteen vahvuuteensa n. 3 kk kuluessa
+  </div>
+</div>
+
+## Lonkkaleikkauksen jälkeen Trendelenburgin testi positiivinen. Mikä lihas vaurioitunut? 
+
+Ei muistettu vaihtoehtoja, mutta mikä lihas on irronnut sen insertiokohdasta? 
+
+<div class="solution">
+  <button class="solution-button" data-label="Vastaus" data-hide-label="Piilota vastaus">
+    Vastaus
+  </button>
+  <div class="solution-content">
+    Gluteus medius 
+    
+Gluteus medius voi irrota trochanter minorista leikkauskomplikaationa ja tällöin ilmenee positiivinen Trendelenburg. Trendelenburg on siis positiivinen, jos gluteus medius on dysfunktionaalinen tai n. gluteus superior (hermottaa gluteus mediusta) on vaurioitunut. Tällöin potilaan seistessä vaurioituneen puolen jalalla lantio kallistuu vastakkaiselle puolelle. 
+
+![](images/trendelenburg.png)
+  </div>
+</div>
