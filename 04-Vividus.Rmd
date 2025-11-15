@@ -482,7 +482,7 @@ Valitse yksi
     Vastaus
   </button>
   <div class="solution-content">
-     a
+     d
      
 Replantaatiota harkitaan aina, jos:
 
