@@ -216,7 +216,15 @@ Valitse yksi
     Vastaus
   </button>
   <div class="solution-content">
-    c
+    d
+
+Monien lähteiden mukaan septiselle nivelnesteelle on tyypillistä seuraavat: valkosolut >50,000 per mm3, granulosyytit >75% ja laktaattipitoisuus yli 9 mmol/l (TYKSLab-ohjekirja, Sy-Laktaat)
+
+Septistä artriittia on syytä epäillä, kun potilaalla on kuumetta ja yksi nivel kipeä ja turvonnut. Polyartriitit ovat harvoin septisiä. 90 % tapauksista kohdistuu lonkkaan, polveen, nilkkaan tai kyynärpäähän.
+
+
+![](images/nivelnestealgoritmi.png)
+![](images/nivelnestetaulukko.png)
   </div>
 </div>
 
